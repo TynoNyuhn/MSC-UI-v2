@@ -4,11 +4,9 @@ kind: ConfigMap
 metadata:
   name: migration-env
 data:
-  EXEC_RUNTIME: core.harbor.example.nip.io/migration/migration-dind:latest
-  EXEC_ENGINE: core.harbor.example.nip.io/migration/migration-engine:latest
-  EXEC_INTERFACE: core.harbor.example.nip.io/migration/migration-interface:latest
-  EXEC_MONITOR: core.harbor.example.nip.io/migration/migration-monitor:latest
-  EVAL_REDIRECTOR: core.harbor.example.nip.io/migration/migration-redirector:latest
+  EXEC_RUNTIME: ghcr.io/hpcclab/live_service_migration/migration-dind:main
+  EXEC_MONITOR: ghcr.io/hpcclab/live_service_migration/migration-monitor:main
+  EVAL_REDIRECTOR: ghcr.io/hpcclab/live_service_migration/migration-redirector:main
   IMAGE_PULL_POLICY: Always
 ---
 apiVersion: apps/v1
@@ -36,7 +34,7 @@ spec:
       serviceAccountName: migration-coordinator
       containers:
         - name: operator
-          image: core.harbor.example.nip.io/migration/migration-operator:latest
+          image: ghcr.io/hpcclab/live_service_migration/migration-operator:main
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -75,7 +73,7 @@ spec:
       serviceAccountName: migration-coordinator
       containers:
         - name: coordinator
-          image: core.harbor.example.nip.io/migration/migration-coordinator:latest
+          image: ghcr.io/hpcclab/live_service_migration/migration-coordinator:main
           ports:
             - containerPort: 5000
           imagePullPolicy: Always
@@ -130,7 +128,7 @@ spec:
       serviceAccountName: migration-coordinator
       containers:
         - name: injector
-          image: core.harbor.example.nip.io/migration/migration-injector:latest
+          image: ghcr.io/hpcclab/live_service_migration/migration-injector:main
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
