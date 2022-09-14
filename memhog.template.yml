@@ -14,6 +14,11 @@ spec:
     - name: memhog
       image: ghcr.io/hpcclab/live_service_migration/memhogff:main
       imagePullPolicy: Always
+      command:
+        - /init
+        - bash
+        - -c
+        - "while true; do sleep 15; done"
       env:
         - name: MEMORY_REQUEST
           value: '0'
