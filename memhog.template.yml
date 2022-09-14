@@ -13,6 +13,7 @@ spec:
   containers:
     - name: memhog
       image: ghcr.io/hpcclab/live_service_migration/memhogff:main
+      imagePullPolicy: Always
       env:
         - name: MEMORY_REQUEST
           value: '0'
