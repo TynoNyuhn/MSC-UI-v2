@@ -136,6 +136,8 @@ spec:
           env:
             - name: HOST_NAME
               value: 34.171.55.226
+            - name: ORCHESTRATOR_TYPE
+              value: minishift
           startupProbe:
             httpGet:
               port: 8080
