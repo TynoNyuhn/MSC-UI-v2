@@ -39,6 +39,9 @@ spec:
           envFrom:
             - configMapRef:
                 name: migration-env
+          env:
+            - name: INTERFACE_HOST
+              value: 34.171.55.226
           startupProbe:
             httpGet:
               port: 8080
