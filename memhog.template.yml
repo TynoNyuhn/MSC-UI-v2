@@ -7,13 +7,13 @@ metadata:
 #  namespace: myproject
   annotations:
     migration-migratable: 'true'
-    # migration-engine: 'dind'
+    migration-engine: 'dind'
     # migration-start-mode: 'passive'
 spec:
   serviceAccountName: migration-coordinator
   containers:
     - name: memhog
-      image: ghcr.io/hpcclab/live_service_migration/memhogff:main
+      image: ghcr.io/hpcclab/live_service_migration/memhog:main
       imagePullPolicy: Always
       env:
         - name: MEMORY_REQUEST
