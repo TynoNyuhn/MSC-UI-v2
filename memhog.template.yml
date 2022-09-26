@@ -8,7 +8,7 @@ metadata:
   annotations:
     migration-migratable: 'true'
     migration-engine: 'dind'
-    migration-start-mode: null
+    migration-start-mode: 'null'
 spec:
   serviceAccountName: migration-coordinator
   containers:
