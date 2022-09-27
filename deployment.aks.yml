@@ -41,7 +41,7 @@ spec:
                 name: migration-env
           env:
             - name: INTERFACE_HOST
-              value: 20.163.235.136
+              value: 20.85.209.32
           startupProbe:
             httpGet:
               port: 8080
@@ -138,7 +138,7 @@ spec:
                 name: migration-env
           env:
             - name: HOST_NAME
-              value: 20.163.235.136
+              value: 20.85.209.32
           startupProbe:
             httpGet:
               port: 8080
