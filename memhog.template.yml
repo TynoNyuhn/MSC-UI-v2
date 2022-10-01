@@ -7,13 +7,17 @@ metadata:
 #  namespace: myproject
   annotations:
     migration-migratable: 'true'
-    migration-engine: 'dind'
+    # Docker-in-Docker
+    #migration-engine: 'dind'
     #migration-start-mode: "null"
 spec:
   serviceAccountName: migration-coordinator
   containers:
     - name: memhog
-      image: ghcr.io/hpcclab/live_service_migration/memhog:main
+    # Docker-in-Docker
+    # image: ghcr.io/hpcclab/live_service_migration/memhog:main
+    # Fast-Freeze 
+      image: ghcr.io/hpcclab/live_service_migration/memhogff:main
       imagePullPolicy: Always
       env:
         - name: MEMORY_REQUEST
